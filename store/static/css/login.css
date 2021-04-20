@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(-72deg, white 49%, rgba(0, 0, 0, 0) 30%);
+}
+
+body #t1 {
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 118px;
+    font-size: 82px;
+    background-image: url(Images/t3.gif);
+    color: rgba(0, 0, 0, 0.534);
+    -webkit-background-clip: text;
+    word-spacing: 2px;
+}
+
+body #t2 {
+    font-weight: bold;
+    margin-top: -39px;
+    margin-left: 120px;
+    font-size: 80px;
+    background-image: url(Images/t3.gif);
+    color: rgba(0, 0, 0, 0.534);
+    -webkit-background-clip: text;
+    word-spacing: 2px;
+}
+
+body #info {
+    margin-left: 50px;
+    margin-top: -64px;
+    width: 2000px;
+}
+
+body #image {
+    margin-top: -490px;
+    margin-left: 731px;
+}
+
+body #topnav {
+    background-image: url(Images/s1.JPG);
+    background-repeat: no-repeat;
+}

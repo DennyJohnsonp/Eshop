@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% load static %} {% block menu %}
+<div>
+    <ul id="firstthree">
+        <h4 id="a">
+            <a class="text-dark" href="{% url 'index' %}" style="text-decoration: none;">HOME</a>
+        </h4>
+        <h4 id="b">
+            <a class="text-dark" href="#" style="text-decoration: none;">PORTFOLIO</a>
+        </h4>
+        <h4 id="c">
+            <a class="text-dark" href="#" style="text-decoration: none;">ABOUT US</a>
+        </h4>
+    </ul>
+</div>
+<div>
+    <ul id="logo">
+        <a href="#" style="text-decoration: none;"><img src="{%  static  'css/Images/logo.png'  %}" width="430" height="430"></a>
+    </ul>
+</div>
+<div class="ml-1">
+    <ul id="lastthree">
+        <h4 id="d">
+            <a class="text-dark" href="{% url 'cart' %}" style="text-decoration: none;">STORE</a>
+        </h4>
+        <h4 id="e">
+            <a class="text-dark" href="#" style="text-decoration: none;">CONTACT</a>
+        </h4>
+        <h4 id="f">
+            <a class="text-dark" href="#" style="text-decoration: none;">ACCOUNT</a>
+        </h4>
+    </ul>
+</div>
+
+<div id="img1">
+    <img src="{%  static  'css/Images/c3.png'  %}" width="400px" height="400px">
+</div>
+<div id="img2">
+    <img src="{%  static  'css/Images/c1.png'  %}" width="500px" height="300px">
+</div>
+<div id="text">
+    <h4>WORLD CLASS</h4>
+    <h1>SHOPPING</h1>
+    <h1 id="s">CART</h1>
+    <P>Dive into amazing world of Photography full of emotions, feelings, <br> beautiful faces and personalities.Enjoy the mixture of beauty and creativity </P>
+</div>
+<div id="scrolldown"><img style="width: 36px; height: 90px;" src="{%  static  'css/Images/scroll.png'  %}"></div>
+
+{% endblock %}
+
+<! -- Below is Shoping cart  -->
+
+{% block content %}
+<div class="container-fluid mt-5" id="sidenav">
+    <div class="row">
+        <!--To Show the Filter or Category Option -->
+        <div class="col-lg-2 mx-auto">
+            <div class="list-group">
+                <a href="/cart" class="list-group-item list-group-action">All Products</a> {% for category in categories%}
+                <a href="?category={{category.id}}" class="list-group-item list-group-action">{{category.name}}</a> {% endfor%}
+            </div>
+
+        </div>
+
+        <!-- To Show the product Products  -->
+        <div id="products" class="col-lg-10 mx-auto">
+            <div class="row mx-auto">
+                {% for product in products %}
+                <div class="card mx-auto mb-4" style="width: 18rem;">
+                    <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-title">{{product.name}}</p>
+                        <p class="card-text"><b>{{product.price}}₹</b></p>
+                        <a href="#" class="btn btn-light border btn-sm">Add To Cart</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

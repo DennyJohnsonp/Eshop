@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Home
+    </title>
+</head>
+<link rel="Stylesheet" href="{%  static  'css/index.css'  %}">
+
+<body scroll="no" style="overflow: hidden">
+    <div>
+        <ul id="firstthree">
+            <h4 id="a">
+                <a href="{% url 'index' %}" style="text-decoration: none;">HOME</a>
+            </h4>
+            <h4 id="b">
+                <a href="#" style="text-decoration: none;">PORTFOLIO</a>
+            </h4>
+            <h4 id="c">
+                <a href="#" style="text-decoration: none;">ABOUT US</a>
+            </h4>
+        </ul>
+    </div>
+    <div>
+        <ul id="logo">
+            <a href="#" style="text-decoration: none;"><img src="{%  static  'css/Images/logo.png'  %}" width="430" height="430"></a>
+        </ul>
+    </div>
+    <div>
+        <ul id="lastthree">
+            <h4 id="d">
+                <a href="{% url 'cart' %}" style="text-decoration: none;">STORE</a>
+            </h4>
+            <h4 id="e">
+                <a href="#" style="text-decoration: none;">CONTACT</a>
+            </h4>
+            <h4 id="f">
+                <a href="#" style="text-decoration: none;">ACCOUNT</a>
+            </h4>
+        </ul>
+    </div>
+
+    <div id="img1">
+        <img src="{%  static  'css/Images/bf1.png'  %}" width="700px" height="700px">
+    </div>
+    <div id="img2">
+        <img src="{%  static  'css/Images/bf1.png'  %}" width="800px" height="700px">
+    </div>
+    <div id="text">
+        <h4>WORLD CLASS</h4>
+        <h1>PHOTOGRAPH</h1>
+        <h1 id="s">STUDIO</h1>
+        <P>Dive into amazing world of Photography full of emotions, feelings, <br> beautiful faces and personalities.Enjoy the mixture of beauty and creativity </P>
+    </div>
+    <div id="button">
+        <a href="{% url 'gallery' %}" style="text-decoration:none"><button type="button">EXPLORE MORE</button></a>
+    </div>
+    <footer>© 2020 KINGSMAN || All rights reserved</footer>
+</body>
+
+</html>

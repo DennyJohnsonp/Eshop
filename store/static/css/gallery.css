@@ -1,0 +1,371 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    z-index: 0;
+    color: black;
+}
+
+body {
+    background-color: beige;
+    width: 100%;
+    opacity: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body div ul h4 {
+    display: inline-flex;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    margin-right: 40px;
+    font-size: 17px;
+    text-shadow: .5px .5px black;
+    position: relative;
+}
+
+body div ul h4:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+body div ul h4:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+body div #firstthree {
+    margin-top: 60px;
+    margin-left: 70px;
+}
+
+body div #logo {
+    margin-left: 420px;
+    margin-top: -230px;
+}
+
+body div #lastthree {
+    margin-left: 810px;
+    margin-top: -241px;
+}
+
+body #image #image1 {
+    background-image: url(Images/i1.JPG);
+    margin-top: 30px;
+    margin-left: 70px;
+    width: 430px;
+    height: 270px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slide1 60s infinite;
+    border: 4px solid white;
+    z-index: 3;
+    position: relative;
+}
+
+@keyframes slide1 {
+    20% {
+        background-image: url(Images/i2.JPG);
+    }
+    40% {
+        background-image: url(Images/i3.JPG);
+    }
+    60% {
+        background-image: url(Images/i4.JPG);
+    }
+    80% {
+        background-image: url(Images/i5.JPG);
+    }
+    100% {
+        background-image: url(Images/i6.JPG);
+    }
+}
+
+body #image #image2 {
+    background-image: url(Images/i1.JPG);
+    margin-top: -70px;
+    margin-left: 420px;
+    width: 410px;
+    height: 250px;
+    border: 4px solid white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slide2 60s infinite;
+    z-index: 3;
+    position: relative;
+}
+
+@keyframes slide2 {
+    20% {
+        background-image: url(Images/i2.JPG);
+    }
+    40% {
+        background-image: url(Images/i3.JPG);
+    }
+    60% {
+        background-image: url(Images/i4.JPG);
+    }
+    80% {
+        background-image: url(Images/i5.JPG);
+    }
+    100% {
+        background-image: url(Images/i6.JPG);
+    }
+}
+
+body #image #image3 {
+    background-image: url(Images/i1.JPG);
+    margin-top: -425px;
+    margin-left: 520px;
+    width: 210px;
+    height: 150px;
+    border: 4px solid white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: slide3 60s infinite;
+    z-index: 3;
+    position: relative;
+}
+
+@keyframes slide3 {
+    20% {
+        background-image: url(Images/i2.JPG);
+    }
+    40% {
+        background-image: url(Images/i3.JPG);
+    }
+    60% {
+        background-image: url(Images/i4.JPG);
+    }
+    80% {
+        background-image: url(Images/i5.JPG);
+    }
+    100% {
+        background-image: url(Images/i6.JPG);
+    }
+}
+
+body #flower1 {
+    margin-top: -190px;
+    margin-left: -38px;
+}
+
+body #flower2 {
+    width: 300px;
+    height: 200px;
+    margin-top: -906px;
+    margin-left: 824px;
+}
+
+body #text #h h1 {
+    margin-top: 180px;
+    margin-left: 800px;
+    font-family: fantasy;
+    font-size: 70px;
+    word-spacing: 15px;
+    letter-spacing: 12px;
+    color: rgba(255, 80, 197, 0.5);
+    -webkit-background-clip: text;
+    background-image: url(Images/t2.gif);
+}
+
+body #text #h #t1 {
+    margin-left: 760px;
+}
+
+body #text #h #t2 {
+    margin-top: -10px;
+    margin-left: 800px;
+}
+
+body #text #h #t3 {
+    margin-top: -6px;
+    margin-left: 910px;
+}
+
+body #text #h #t3::after {
+    animation: changetext 50s ease-in-out infinite alternate;
+    display: block;
+    content: "Hey there is this is just a";
+}
+
+@keyframes changetext {
+    0% {
+        content: "MOTHER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    10% {
+        content: "WOMEN!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    20% {
+        content: "FATHER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    30% {
+        content: "BROTHER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    40% {
+        content: "SISTER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    50% {
+        content: "LOVER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    60% {
+        content: "SON!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    70% {
+        content: "LADIES!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    80% {
+        content: "UNCLE!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    90% {
+        content: "AUNT!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+    100% {
+        content: "FATHER!!";
+        font-family: fantasy;
+        font-size: 70px;
+        word-spacing: 15px;
+        letter-spacing: 12px;
+        color: rgba(255, 80, 197, 0.5);
+        -webkit-background-clip: text;
+        background-image: url(Images/t2.gif);
+    }
+}
+
+body #text #p q div {
+    margin-top: 0px;
+    margin-left: 860px;
+    font-family: cursive;
+}
+
+body #text #p q div::after {
+    animation: changeLetter 50s ease-in infinite alternate;
+    display: block;
+    font-style: italic;
+    font-size: 18px;
+    content: "Hey there is this is just a";
+}
+
+@keyframes changeLetter {
+    0% {
+        content: "If you are looking forward to making your beautiful movements towards best photograph framework then you are at the right spot.";
+    }
+    20% {
+        content: "Photos can be taken by anyone but our professional experts are here to present you that eye-catching and elegant photos for you.";
+    }
+    40% {
+        content: "It is rare to find unforgettable and flawless images. Every single image will impress you and make you fall in love with it.";
+    }
+    60% {
+        content: "We are here to making your beautiful movements into perfect memories into a hight quality HD images.So why wait contact us soon..";
+    }
+    80% {
+        content: "Your unseen beauty which you never knew that excited will be captured, your unnoticed beautiful features will be highlighted in one go.";
+    }
+    100% {
+        content: "You can look at a picture for a week and never think of it again.You can also look at a picture for a second and think of it all your life.";
+    }
+}
+
+body button {
+    margin-left: 940px;
+    position: fixed;
+    align-items: center;
+    margin-top: 15px;
+    width: 230px;
+    font-size: 24px;
+    height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 20px;
+    text-decoration: none;
+    background-color: rgba(150, 34, 34, 0.685);
+    border-radius: 30px;
+    font-size: 20px;
+    border: 1px solid white;
+    color: aliceblue;
+    padding: 4px;
+    border: none;
+}
+
+body button:hover {
+    background-image: url(Images/t1.gif);
+    background-color: rgba(0, 0, 0, 0.459);
+}

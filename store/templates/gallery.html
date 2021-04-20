@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Gallery
+    </title>
+</head>
+<link rel="Stylesheet" href="{%  static  'css/gallery.css'  %}">
+
+<body scroll="no" style="overflow: hidden">
+
+    <div>
+        <ul id="firstthree">
+            <h4 id="a">
+                <a href="{% url 'index' %}" style="text-decoration: none;">HOME</a>
+            </h4>
+            <h4 id="b">
+                <a href="#" style="text-decoration: none;">PORTFOLIO</a>
+            </h4>
+            <h4 id="c">
+                <a href="#" style="text-decoration: none;">ABOUT US</a>
+            </h4>
+        </ul>
+    </div>
+    <div>
+        <ul id="logo">
+            <a href="#" style="text-decoration: none;"><img src="{%  static  'css/Images/logo.png'  %}" width="430" height="430"></a>
+        </ul>
+    </div>
+    <div>
+        <ul id="lastthree">
+            <h4 id="d">
+                <a href="{% url 'cart' %}" style="text-decoration: none;">STORE</a>
+            </h4>
+            <h4 id="e">
+                <a href="#" style="text-decoration: none;">CONTACT</a>
+            </h4>
+            <h4 id="f">
+                <a href="#" style="text-decoration: none;">ACCOUNT</a>
+            </h4>
+        </ul>
+    </div>
+    <div id="image">
+        <div id="image1">
+            <img width="430" height="270">
+        </div>
+        <div id="image2">
+            <img width="410" height="250">
+        </div>
+        <div id="image3">
+            <img width="210" height="150">
+        </div>
+    </div>
+    <div id="flower1">
+        <img src="{%  static  'css/Images/bf3.png'  %}">
+    </div>
+    <div id="flower2">
+        <img src="{%  static  'css/Images/bf4.png'  %}">
+    </div>
+    <div id="text">
+        <div id="h">
+            <h1 id="t1">HEY YOU</h1>
+            <h1 id="t2">BEAUTIFUL</h1>
+            <h1 id="t3"></h1>
+
+        </div>
+        <div id="p">
+            <q>
+            <div></div></q>
+        </div>
+    </div>
+    <div id="button">
+        <a href="gallery.html" style="text-decoration:none"><button type="button">SEE OUR WORKS</button></a>
+    </div>
+
+</body>
+
+</html>
