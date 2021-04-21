@@ -68,9 +68,12 @@
         function scrollFunction() {
             if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
                 document.getElementById("topnav").style.top = "0";
+                document.getElementById("bs").style.top = "0";
             } else {
                 document.getElementById("topnav").style.top = "-50px";
+                document.getElementById("bs").style.top = "-900px";
             }
+
         }
     </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
