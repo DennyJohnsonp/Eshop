@@ -65,7 +65,7 @@
         <div id="products" class="col-lg-10 mx-auto">
             <div class="row mx-auto">
                 {% for product in products %}
-                <div class="card mx-auto mb-4" style="width: 18rem;">
+                <div class="card mx-auto mb-4" id="{{product.id}}" style="width: 18rem;">
                     <img src="{{product.image.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-title">{{product.name}}</p>
@@ -74,12 +74,21 @@
                     <div class="card-footer p-0  no-gutters">
                         {% if product|is_in_cart:request.session.cart %}
                         <div class="row no-gutters">
-                            <input type="submit" value=" - " class="col-2 btn btn-block btn-secondary">
-                            <div class="text-center col">{{product|cart_quantity:request.session.cart}}in cart</div>
-                            <input type="submit" value=" + " class="col-2 btn btn-block btn-secondary">
+                            <form action="/cart#{{product.id}}" class="col-2" method="POST">
+                                {% csrf_token %}
+                                <input hidden type="text" name="product" value="{{product.id}}">
+                                <input hidden type="text" name="remove" value="True">
+                                <input type="submit" value=" - " class="btn btn-block btn-primary border-rigt">
+                            </form>
+                            <div class="text-center col ">{{product|cart_quantity:request.session.cart}}in cart</div>
+                            <form action="/cart#{{product.id}}" class="col-2" method="POST">
+                                {% csrf_token %}
+                                <input hidden type="text" name="product" value="{{product.id}}">
+                                <input type="submit" value=" + " class="btn btn-block btn-primary border-left">
+                            </form>
                         </div>
                         {% else %}
-                        <form action="/cart" method="POST" class="btn-block">
+                        <form action="/cart#{{product.id}}" method="POST" class="btn-block">
                             {% csrf_token %}
                             <input hidden type="text" name="product" value="{{product.id}}">
                             <input type="submit" class="float-right btn btn-light border form-control" value="Add To Cart">

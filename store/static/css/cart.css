@@ -132,6 +132,7 @@ body #bs {
     height: 100%;
     width: 100%;
     display: block;
+    margin-left: -12px;
     transition: top 0.3s;
     z-index: -8;
     background-image: url(Images/bf7.png);
