@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %} {% block menu %}
+ {% extends "base.html" %}{% load cart %} {% load static %} {% block menu %}
 <div>
     <ul id="firstthree">
         <h4 id="a">
@@ -70,19 +70,31 @@
                     <div class="card-body">
                         <p class="card-title">{{product.name}}</p>
                         <p class="card-text"><b>{{product.price}}₹</b></p>
-                        <form action="/cart" method="POST">
+                    </div>
+                    <div class="card-footer p-0  no-gutters">
+                        {% if product|is_in_cart:request.session.cart %}
+                        <div class="row no-gutters">
+                            <input type="submit" value=" - " class="col-2 btn btn-block btn-secondary">
+                            <div class="text-center col">{{product|cart_quantity:request.session.cart}}in cart</div>
+                            <input type="submit" value=" + " class="col-2 btn btn-block btn-secondary">
+                        </div>
+                        {% else %}
+                        <form action="/cart" method="POST" class="btn-block">
                             {% csrf_token %}
                             <input hidden type="text" name="product" value="{{product.id}}">
-                            <input type="submit" class="btn btn-light border btn-sm" value="Add To Cart">
+                            <input type="submit" class="float-right btn btn-light border form-control" value="Add To Cart">
                         </form>
+                        {% endif %}
+
                     </div>
+
                 </div>
                 {% endfor %}
+                </>
             </div>
         </div>
     </div>
-</div>
-<div id="bs">
+    <div id="bs">
 
-</div>
-{% endblock %}
+    </div>
+    {% endblock %}
