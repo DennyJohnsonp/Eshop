@@ -18,11 +18,15 @@ class Login(View):
         if customer:
             flag = check_password(password , customer.password)
             if flag:
-                request.session['customer_id']= customer.id
-                request.session['email ']= customer.email
+                request.session['customer']= customer.id
+            
                 return redirect('cart')
             else:
                 error_message = "!!! Invalid User Name or Password!!!"
         else:
             error_message = "!!! Invalid User Name or Password!!!"
         return render(request,'login.html',{'error':error_message})
+
+def logout(request):
+    request.session.clear()
+    return redirect('login')
