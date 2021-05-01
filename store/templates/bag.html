@@ -76,7 +76,7 @@
                     {%for product in products %}
                     <tr>
                         <td>{{forloop.counter}}</td>
-                        <td><img class="rounded" src="{{product.image.url}}" alt="..." style="height: 100px; "></td>
+                        <td><img class="rounded" src="{{product.image.url}}" alt="..." style="height: 100px; width: 100px; "></td>
                         <td>{{product.name}}</td>
                         <td>{{product.price}}₹</td>
                         <td>{{product|cart_quantity:request.session.cart }}</td>
@@ -95,7 +95,7 @@
             </table>
             <hr>
             <div class="m-3 p-3">
-                <a href="#" class="btn btn-outline-secondary border rounded col-lg-3 float-right ">Check Out</a>
+                <a href="{% url 'checkout' %}" class="btn btn-outline-secondary border rounded col-lg-3 float-right ">Check Out</a>
             </div>
         </div>
     </div>

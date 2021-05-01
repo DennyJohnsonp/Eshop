@@ -54,6 +54,8 @@ class Cart(View):
         data['categories'] = categories
         return render(request, 'cart.html', data)
 
+def checkout(request):
+    return render(request, 'checkout.html')
 
 def cart2(request):
     prds = Product.get_all_products()

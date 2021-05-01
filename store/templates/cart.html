@@ -32,11 +32,20 @@
 </div>
 
 <div id="img1">
-    <img src="{%  static  'css/Images/c3.png'  %}" width="430px" height="430px">
+    <img src="{%  static  'css/Images/c1.png'  %}" width="450px" height="400px">
 </div>
 <div id="img2">
-    <img src="{%  static  'css/Images/c1.png'  %}" width="600px" height="350px">
+    <img src="{%  static  'css/Images/c6.png'  %}" width="350px" height="350px">
 </div>
+<div id="img3">
+    <img src="{%  static  'css/Images/c3.png'  %}" width="300px" height="280px">
+</div>
+
+<div id="img5">
+    <img src="{%  static  'css/Images/c5.png'  %}" width="340px" height="340px">
+</div>
+
+
 <div id="text">
     <h1 class="font-weight-bold">ENJOY ONLINE</h1>
     <h1 id="s" class="font-weight-bold">SHOPPING</h1>
@@ -67,7 +76,7 @@
         <div class="con">
             <p class="name">{{product.name}}</p>
             <p class="price"><b>{{product.price}}₹</b></p>
-            <p class="dis">{{product.description}}</p>
+            <p class="dis">{{product.short_description}}</p>
         </div>
         <div id="add" class="card-footer p-0  no-gutters">
             {% if product|is_in_cart:request.session.cart %}

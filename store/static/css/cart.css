@@ -49,7 +49,7 @@ body div #lastthree {
 body #text {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    margin-top: -240px;
+    margin-top: 504px;
 }
 
 body #text h4 {
@@ -63,10 +63,10 @@ body #text h1 {
     margin-top: -420px;
     letter-spacing: 13px;
     font-size: 80px;
-    background-image: url(Images/p1\ \(3\).jpg);
+    background-image: url(https://media.giphy.com/media/l3vRbTrGdpZrjjco8/giphy.gif);
     background-size: cover;
     -webkit-background-clip: text;
-    color: transparent;
+    color: rgba(128, 0, 0, 0.247);
     z-index: 3;
     position: relative;
     font-weight: bolder;
@@ -89,17 +89,35 @@ body #text p {
 }
 
 body #img1 {
-    margin-left: -50px;
-    margin-top: 90px;
-    position: relative;
+    margin-left: -200px;
+    margin-top: -280px;
+    position: absolute;
     z-index: -2;
+    transform: rotate(40deg);
 }
 
 body #img2 {
-    margin-left: 800px;
-    margin-top: -350px;
-    position: relative;
+    margin-left: -30px;
+    margin-top: 168px;
+    position: absolute;
     z-index: -2;
+    transform: rotate(0deg);
+}
+
+body #img3 {
+    margin-left: 980px;
+    margin-top: -280px;
+    position: absolute;
+    transform: rotate(90deg);
+    z-index: -2;
+}
+
+body #img5 {
+    margin-left: 976px;
+    margin-top: 200px;
+    z-index: -2;
+    transform: rotate(-28deg);
+    position: absolute;
 }
 
 body #sidenav {
