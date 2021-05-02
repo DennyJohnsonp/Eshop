@@ -57,8 +57,8 @@
             </div>
         </div>
     </nav>
-    <h1>Check out Page</h1>
-    <form class="form-horizontal">
+    <form id="main" action="/cart/checkout" method="POST">
+        {% csrf_token %}
         <fieldset>
             <!-- Address form -->
 
@@ -66,55 +66,57 @@
 
             <!-- full-name input-->
             <div class="first">
-                <label class="second">Full Name</label>
                 <div class="third">
-                    <input id="full-name" name="full-name" type="text" placeholder="full name" class="input-xlarge">
-                    <p class="help-block"></p>
+                    <input id="first-name" name="first-name" type="text" placeholder="First name" style="height: 35px; width: 250px;">
+                </div>
+            </div>
+            <div class="first" id="ln">
+                <div class="third">
+                    <input id="last-name" name="last-name" type="text" placeholder="Last name" style="height: 35px; width: 250px;">
+                </div>
+            </div>
+            <!-- Phone Number input-->
+            <div class="first">
+                <div class="third">
+                    <input id="phone" name="phone" type="text" placeholder="Phone Number" style="height: 35px; width: 250px;">
+                </div>
+            </div>
+            <div class="first" id="pm">
+                <div class="third">
+                    <select id="country" name="payment" style="height: 35px; width: 250px;">
+                        <option value="" selected="selected">Payment Method</option>
+                        <option value="AF">Cash On Delivery(COD)</option>
+                    </select>
                 </div>
             </div>
             <!-- address-line1 input-->
             <div class="first">
-                <label class="second">Address Line 1</label>
                 <div class="third">
-                    <input id="address-line1" name="address-line1" type="text" placeholder="address line 1" class="input-xlarge">
-                    <p class="help-block">Street address, P.O. box, company name, c/o</p>
-                </div>
-            </div>
-            <!-- address-line2 input-->
-            <div class="first">
-                <label class="second">Address Line 2</label>
-                <div class="third">
-                    <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge">
-                    <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
-                </div>
-            </div>
-            <!-- city input-->
-            <div class="first">
-                <label class="second">City / Town</label>
-                <div class="third">
-                    <input id="city" name="city" type="text" placeholder="city" class="input-xlarge">
-                    <p class="help-block"></p>
-                </div>
-            </div>
-            <!-- region input-->
-            <div class="first">
-                <label class="second">State / Province / Region</label>
-                <div class="third">
-                    <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge">
-                    <p class="help-block"></p>
+                    <input id="address-line1" name="address" type="text" placeholder="Address line " style="height: 35px; width: 530px;">
                 </div>
             </div>
             <!-- postal-code input-->
             <div class="first">
                 <div class="third">
-                    <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge">
-                    <p class="help-block"></p>
+                    <input id="postal-code" name="zip" type="text" placeholder="Zip Code" style="height: 35px; width: 250px;">
+                </div>
+            </div>
+            <!-- city input-->
+            <div class="first" id="cy">
+                <div class="third">
+                    <input id="city" name="city" type="text" placeholder="City" style="height: 35px; width: 250px;">
+                </div>
+            </div>
+            <!-- region input-->
+            <div class="first">
+                <div class="third">
+                    <input id="region" name="state" type="text" placeholder="State" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- country select -->
-            <div class="first">
+            <div class="first" id="cn">
                 <div class="third">
-                    <select id="country" name="country" class="input-xlarge">
+                    <select id="country" name="country" style="height: 35px; width: 250px;">
                         <option value="" selected="selected">Select A Country</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
@@ -358,22 +360,33 @@
                     </select>
                 </div>
             </div>
+            <div id="denny" name="location" style="padding: 8px;">
+                <div class="third">
+                    <input type="text" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 475px;">
+                    <button style="height: 35px; width: 50px;" type="button" onclick="showPosition();"><img src="{%  static  'css/Images/map.png'  %}" style="height: 25px; width: 25px;"></button>
+                </div>
+            </div>
+            <input id="proceed" style="height: 40px; width: 230px;" type="submit" value="Proceed To Checkout">
         </fieldset>
     </form>
+    <div id="loc">
+        <img src="{%  static  'css/Images/a2.png'  %}" style="height: 560px; width: 630px;">
+    </div>
+    <script>
+        function showPosition() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var positionInfo = "google.com/maps/?q=" + position.coords.latitude + "," + position.coords.longitude;
+                    document.getElementById("denny").innerHTML = positionInfo;
+                });
+            } else {
+                alert("Sorry, your browser does not support HTML5 geolocation.");
+            }
+        }
+    </script>
 
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js " integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf " crossorigin="anonymous "></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js " integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js " integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc " crossorigin="anonymous "></script>
-    -->
 
 </body>
+
 
 </html>

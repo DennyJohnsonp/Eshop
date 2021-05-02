@@ -6,3 +6,72 @@ body #topnav {
     background-image: url(Images/s1.JPG);
     background-repeat: no-repeat;
 }
+
+body #main {
+    background-color: rgba(255, 255, 255, 0.397);
+    padding: 20px;
+    width: 600px;
+    margin-left: 40px;
+    margin-top: 50px;
+}
+
+body #main .first {
+    padding: 8px;
+    width: 100px;
+}
+
+body #main #ln {
+    margin-left: 280px;
+    margin-top: -51px;
+}
+
+body #main #pm {
+    margin-left: 280px;
+    margin-top: -51px;
+}
+
+body #main #cy {
+    margin-left: 280px;
+    margin-top: -51px;
+}
+
+body #main #cn {
+    margin-left: 280px;
+    margin-top: -51px;
+}
+
+body #main #denny .third button {
+    background-color: transparent;
+    border-radius: 22px;
+    background-color: rgba(128, 128, 128, 0.281);
+    color: black;
+    border: 0.1px solid #000000;
+    margin-top: 0px;
+}
+
+body #main #denny .third button:hover {
+    transform: scale(1.06, 1.06);
+    background-image: url(https://media.giphy.com/media/HzMfJIkTZgx8s/giphy.gif);
+}
+
+body #main #proceed {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 180px;
+    background-color: transparent;
+    border-radius: 22px;
+    background-color: rgba(25, 25, 248, 0.822);
+    color: white;
+    border: 1.5px solid #000000;
+}
+
+body #main #proceed:hover {
+    transform: scale(1.06, 1.06);
+    color: white;
+    background-image: url(https://media.giphy.com/media/30pjsLvNyaRY0eoE0b/giphy.gif);
+}
+
+body #loc {
+    margin-top: -530px;
+    margin-left: 630px;
+}
