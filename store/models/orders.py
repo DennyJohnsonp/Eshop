@@ -7,8 +7,18 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     price = models.IntegerField()
-    address = models.CharField(max_length=50,default='')
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50,default='')
     phone = models.CharField(max_length=50,default='')
+    payment= models.CharField(max_length=50,default='')
+    address = models.CharField(max_length=100,default='')
+    zipcode = models.CharField(max_length=10,default='')
+    city = models.CharField(max_length=10,default='')
+    state = models.CharField(max_length=10,default='')
+    country = models.CharField(max_length=10,default='')
+    location = models.CharField(max_length=100,default='')
     date= models.DateField(default=datetime.datetime.today)  
       
     
+    def placeOrder(self):
+        self.save() 

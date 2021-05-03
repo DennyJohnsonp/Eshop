@@ -17,7 +17,7 @@
     </title>
 </head>
 
-<body style="overflow-x: hidden;background-color:beige;">
+<body style="overflow: hidden;background-color:beige;">
     <nav id="topnav" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="nav-link active" href="{% url 'index' %}">Home</a>
@@ -57,7 +57,7 @@
             </div>
         </div>
     </nav>
-    <form id="main" action="/cart/checkout" method="POST">
+    <form id="main" action="/cart/bag/checkout" method="POST">
         {% csrf_token %}
         <fieldset>
             <!-- Address form -->
@@ -67,12 +67,12 @@
             <!-- full-name input-->
             <div class="first">
                 <div class="third">
-                    <input id="first-name" name="first-name" type="text" placeholder="First name" style="height: 35px; width: 250px;">
+                    <input id="first-name" name="firstname" type="text" placeholder="First name" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <div class="first" id="ln">
                 <div class="third">
-                    <input id="last-name" name="last-name" type="text" placeholder="Last name" style="height: 35px; width: 250px;">
+                    <input id="last-name" name="lastname" type="text" placeholder="Last name" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- Phone Number input-->
@@ -85,7 +85,7 @@
                 <div class="third">
                     <select id="country" name="payment" style="height: 35px; width: 250px;">
                         <option value="" selected="selected">Payment Method</option>
-                        <option value="AF">Cash On Delivery(COD)</option>
+                        <option value="COD">Cash On Delivery(COD)</option>
                     </select>
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <!-- postal-code input-->
             <div class="first">
                 <div class="third">
-                    <input id="postal-code" name="zip" type="text" placeholder="Zip Code" style="height: 35px; width: 250px;">
+                    <input id="postal-code" name="zipcode" type="text" placeholder="Zip Code" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- city input-->
@@ -360,9 +360,9 @@
                     </select>
                 </div>
             </div>
-            <div id="denny" name="location" style="padding: 8px;">
+            <div style="padding: 8px;">
                 <div class="third">
-                    <input type="text" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 475px;">
+                    <input id="denny" type="text" name="location" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 475px;">
                     <button style="height: 35px; width: 50px;" type="button" onclick="showPosition();"><img src="{%  static  'css/Images/map.png'  %}" style="height: 25px; width: 25px;"></button>
                 </div>
             </div>
@@ -370,14 +370,14 @@
         </fieldset>
     </form>
     <div id="loc">
-        <img src="{%  static  'css/Images/a2.png'  %}" style="height: 560px; width: 630px;">
+        <img src="{%  static  'css/Images/a3.png'  %}" style="height: 540px; width: 580px;">
     </div>
     <script>
         function showPosition() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var positionInfo = "google.com/maps/?q=" + position.coords.latitude + "," + position.coords.longitude;
-                    document.getElementById("denny").innerHTML = positionInfo;
+                    denny.value = positionInfo;
                 });
             } else {
                 alert("Sorry, your browser does not support HTML5 geolocation.");
