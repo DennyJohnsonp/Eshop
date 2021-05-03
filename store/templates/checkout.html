@@ -13,7 +13,7 @@
 
 
     <title>
-        Cart
+        Check Out
     </title>
 </head>
 
@@ -57,6 +57,7 @@
             </div>
         </div>
     </nav>
+
     <form id="main" action="/cart/bag/checkout" method="POST">
         {% csrf_token %}
         <fieldset>
@@ -360,33 +361,31 @@
                     </select>
                 </div>
             </div>
-            <div style="padding: 8px;">
+            <div id="danny" class="first" style="padding: 8px;">
                 <div class="third">
-                    <input id="denny" type="text" name="location" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 475px;">
-                    <button style="height: 35px; width: 50px;" type="button" onclick="showPosition();"><img src="{%  static  'css/Images/map.png'  %}" style="height: 25px; width: 25px;"></button>
+                    <input id="denny" type="text" name="location" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 465px; position: absolute;">
+                    <button style="height: 35px; width: 50px; " type="button" onclick="showPosition();"><img src="{%  static  'css/Images/map.png'  %}" style="height: 25px; width: 25px;"></button>
                 </div>
             </div>
             <input id="proceed" style="height: 40px; width: 230px;" type="submit" value="Proceed To Checkout">
         </fieldset>
     </form>
     <div id="loc">
-        <img src="{%  static  'css/Images/a3.png'  %}" style="height: 540px; width: 580px;">
+        <img src="{%  static  'css/Images/a3.png'  %}" style="height: 540px; width: 540px;">
     </div>
-    <script>
-        function showPosition() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var positionInfo = "google.com/maps/?q=" + position.coords.latitude + "," + position.coords.longitude;
-                    denny.value = positionInfo;
-                });
-            } else {
-                alert("Sorry, your browser does not support HTML5 geolocation.");
-            }
-        }
-    </script>
-
-
+    <svg height="100%" width="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><defs><linearGradient id="gradient"><stop offset="5%" stop-color="#eb144c88"></stop><stop offset="95%" stop-color="#9900ef88"></stop></linearGradient></defs><path d="M 0,500 C 0,500 0,166 0,166 C 105.37799043062202,132.89952153110048 210.75598086124404,99.79904306220097 289,107 C 367.24401913875596,114.20095693779903 418.3540669856459,161.70334928229664 523,156 C 627.6459330143541,150.29665071770336 785.8277511961722,91.38755980861242 894,104 C 1002.1722488038278,116.61244019138758 1060.3349282296651,200.74641148325358 1143,223 C 1225.6650717703349,245.25358851674642 1332.8325358851675,205.6267942583732 1440,166 C 1440,166 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path><defs><linearGradient id="gradient"><stop offset="5%" stop-color="#eb144cff"></stop><stop offset="95%" stop-color="#9900efff"></stop></linearGradient></defs><path d="M 0,500 C 0,500 0,333 0,333 C 100.5645933014354,354.92344497607655 201.1291866028708,376.8468899521531 295,374 C 388.8708133971292,371.1531100478469 476.0478468899522,343.5358851674642 575,339 C 673.9521531100478,334.4641148325358 784.6794258373205,353.0095693779905 884,361 C 983.3205741626795,368.9904306220095 1071.2344497607655,366.4258373205742 1162,360 C 1252.7655502392345,353.5741626794258 1346.3827751196172,343.2870813397129 1440,333 C 1440,333 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path></svg>
 </body>
-
+<script>
+    function showPosition() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var positionInfo = "google.com/maps/?q=" + position.coords.latitude + "," + position.coords.longitude;
+                denny.value = positionInfo;
+            });
+        } else {
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+</script>
 
 </html>
