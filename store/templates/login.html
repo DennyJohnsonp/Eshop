@@ -54,7 +54,7 @@
             </div>
         </div>
     </nav>
-    <div id="background">
+    <div id="background" style="z-index: 4;position: relative;padding-left: -30px;">
         <div id="t1"> LOGIN TO </div>
         <div id="t2"> ACCOUNT</div>
         <div id="info" class="comtainer">
@@ -69,11 +69,11 @@
 
                         <div class=" form-group mt-4 ">
                             <label for=" ">Email</label>
-                            <input Required type="email" name="email" id=" " value="{{values.email}}" class="form-control form-control-sm " placeholder="example@gmail.com">
+                            <input style="border-radius: 12px; border: 1px solid #0000007c;" Required type="email" name="email" id=" " value="{{values.email}}" class="form-control form-control-sm " placeholder="example@gmail.com">
                         </div>
                         <div class=" form-group mt-4 ">
                             <label for=" ">Password</label>
-                            <input type="password" name="password" id=" " class="form-control form-control-sm " placeholder="**********">
+                            <input style="border-radius: 12px; border: 1px solid #0000007c;" type="password" name="password" id=" " class="form-control form-control-sm " placeholder="**********">
                         </div>
                         <div class=" form-group mt-4 ">
                             <input class="btn btn-sm btn-info col-lg-4 " type="submit" value="Login">
@@ -85,8 +85,9 @@
     </div>
 
     <div id="image">
-        <img src="{% static 'css/Images/a6.png' %} " width="550 " height="550 ">
+        <img src="{% static 'css/Images/a6.png' %} " width="620 " height="620 ">
     </div>
+    <svg height="100%" width="100%" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,600 C 0,600 0,200 0,200 C 71.29230769230767,215.18205128205128 142.58461538461535,230.36410256410255 221,226 C 299.41538461538465,221.63589743589745 384.95384615384626,197.72564102564104 462,176 C 539.0461538461537,154.27435897435896 607.5999999999999,134.73333333333335 691,144 C 774.4000000000001,153.26666666666665 872.6461538461538,191.3410256410256 955,222 C 1037.3538461538462,252.6589743589744 1103.8153846153846,275.9025641025641 1182,271 C 1260.1846153846154,266.0974358974359 1350.0923076923077,233.04871794871795 1440,200 C 1440,200 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#eb144c88" class="transition-all duration-300 ease-in-out delay-150"></path><path d="M 0,600 C 0,600 0,400 0,400 C 70.07179487179488,429.05128205128204 140.14358974358976,458.1025641025641 212,468 C 283.85641025641024,477.8974358974359 357.49743589743593,468.6410256410257 443,461 C 528.5025641025641,453.3589743589743 625.8666666666664,447.3333333333333 722,419 C 818.1333333333336,390.6666666666667 913.0358974358976,340.02564102564105 997,329 C 1080.9641025641024,317.97435897435895 1153.9897435897435,346.5641025641026 1226,365 C 1298.0102564102565,383.4358974358974 1369.0051282051281,391.71794871794873 1440,400 C 1440,400 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#eb144cff" class="transition-all duration-300 ease-in-out delay-150"></path></svg>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

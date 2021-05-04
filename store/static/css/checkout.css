@@ -17,7 +17,7 @@ body #main {
     padding: 20px;
     width: 600px;
     margin-left: 40px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 body #main .first {
@@ -78,7 +78,7 @@ body #main #proceed:hover {
 }
 
 body #loc {
-    margin-top: -500px;
+    margin-top: -530px;
     margin-left: 680px;
 }
 
@@ -106,4 +106,15 @@ body form fieldset div div select {
 body form fieldset div div select:hover {
     border-radius: 12px;
     border: 2.5px solid #ec2f4bbe;
+}
+
+body form fieldset h2 {
+    background-image: url(Images/t3.gif);
+    color: rgba(0, 0, 0, 0.534);
+    -webkit-background-clip: text;
+    word-spacing: 2px;
+    font-weight: bold;
+    font-size: 82px;
+    margin-left: 10px;
+    margin-top: -20px;
 }
