@@ -54,6 +54,8 @@ class Cart(View):
         data['categories'] = categories
         return render(request, 'cart.html', data)
 
+def particular(request):
+    return render(request, 'particular.html')
 
 def orders(request):
     return render(request, 'orders/orders.html')
