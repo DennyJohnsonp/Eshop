@@ -8,6 +8,8 @@ class Product(models.Model):
     short_description = models.CharField(max_length=100,default='',null=True)
     more_description = models.CharField(max_length=600,default='',null=True)
     image = models.ImageField(upload_to='uploads/produts/') 
+    image1 = models.ImageField(upload_to='uploads/produts/',null=True, blank=True) 
+    image2 = models.ImageField(upload_to='uploads/produts/',null=True, blank=True) 
     
     def get_product_by_id(ids):
         return Product.objects.filter(id__in=ids)
