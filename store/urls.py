@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path
-from .views import home, login, signup, bag, checkout
+from .views import home, login, signup, bag, checkout,particular
 
 urlpatterns = [
     path('', home.index,name='index'),
@@ -12,6 +12,6 @@ urlpatterns = [
     path('cart/logout',login.logout,name='logout'),
     path('cart/bag',bag.Bag.as_view(),name='bag'),
     path('cart/bag/checkout',checkout.CheckOut.as_view(),name='checkout'),
-    path('cart/particular/<int:id>/',home.productdetail,name='particular'),
+    path('cart/particular/<int:id>/',particular.Particular.as_view(),name='particular'),
     path('orders',home.orders,name='orders'),
 ]

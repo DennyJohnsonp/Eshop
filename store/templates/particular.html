@@ -15,7 +15,7 @@
 
 
     <title>
-        Cart
+        Particular Products
     </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -60,8 +60,45 @@
             </div>
         </div>
     </nav>
+
     <form action="" method="GET">
         {% for product in products %}
+        <div id="add">
+            {% if product|is_in_cart:request.session.cart %}
+            <div class="adjust">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="text" name="product" value="{{product.id}}">
+                    <input hidden type="text" name="remove" value="True">
+                    <input hidden class="min" type="submit" value=" - ">
+                </form>
+                <div class="des">{{product|cart_quantity:request.session.cart}}in cart</div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="text" name="product" value="{{product.id}}">
+                    <input class="max" type="submit" value=" + ">
+                </form>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="text" name="product" value="{{product.id}}">
+                    <input hidden type="text" name="remove" value="True">
+                    <input class="min" type="submit" value=" - ">
+                </form>
+
+            </div>
+            {% else %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input hidden type="text" name="product" value="{{product.id}}">
+                <input hidden type="submit" class="buttona" value="Add To Cart">
+            </form>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input hidden type="text" name="product" value="{{product.id}}">
+                <input type="submit" class="buttona" value="Add To Cart">
+            </form>
+            {% endif %}
+        </div>
         <div class="container">
             <ul>
                 <img src="{{product.image.url}}" class="big_img">
@@ -87,36 +124,10 @@
                 <div>
                     <button class="buy">Add To Cart</button>
                     <button class="cart">Go To Cart</button>
-                    <div id="add">
-                        {% if product|is_in_cart:request.session.cart %}
-                        <div class="adjust">
-                            <form action="/cart#{{product.id}}" method="POST">
-                                {% csrf_token %}
-                                <input hidden type="text" name="product" value="{{product.id}}">
-                                <input hidden type="text" name="remove" value="True">
-                                <input class="min" type="submit" value=" - ">
-                            </form>
-                            <div class="des">{{product|cart_quantity:request.session.cart}}in cart</div>
-                            <form action="/cart#{{product.id}}" method="POST">
-                                {% csrf_token %}
-                                <input hidden type="text" name="product" value="{{product.id}}">
-                                <input class="max" type="submit" value=" + ">
-                            </form>
-                        </div>
-                        {% else %}
-                        <form action="/cart#{{product.id}}" method="POST">
-                            {% csrf_token %}
-                            <input hidden type="text" name="product" value="{{product.id}}">
-                            <input type="submit" class="buttona" value="Add To Cart">
-                        </form>
-                        {% endif %}
-                        <a href="{% url 'particular' product.id %}"><input type="submit" class="buttonb" value="View More"></a>
-
-
-                    </div>
                 </div>
             </div>
         </div>
+
         {% endfor%}</form>
 
     <svg height="100%" width="100%" id="svg" viewBox="0 0 1440 600" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,600 C 0,600 0,200 0,200 C 75.28229665071768,217.1866028708134 150.56459330143537,234.3732057416268 249,212 C 347.43540669856463,189.6267942583732 469.02392344497616,127.69377990430624 567,129 C 664.9760765550238,130.30622009569376 739.3397129186602,194.85167464114835 822,225 C 904.6602870813398,255.14832535885165 995.6172248803828,250.89952153110045 1100,241 C 1204.3827751196172,231.10047846889955 1322.1913875598086,215.55023923444978 1440,200 C 1440,200 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#eb144c88" class="transition-all duration-300 ease-in-out delay-150"></path><path d="M 0,600 C 0,600 0,400 0,400 C 76.24880382775117,367.8086124401914 152.49760765550235,335.61722488038276 257,346 C 361.50239234449765,356.38277511961724 494.2583732057417,409.33971291866027 604,423 C 713.7416267942583,436.66028708133973 800.4688995215312,411.02392344497605 889,391 C 977.5311004784688,370.97607655502395 1067.866028708134,356.5645933014354 1160,359 C 1252.133971291866,361.4354066985646 1346.066985645933,380.71770334928226 1440,400 C 1440,400 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="#eb144cff" class="transition-all duration-300 ease-in-out delay-150"></path></svg>

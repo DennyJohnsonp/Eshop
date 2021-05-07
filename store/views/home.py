@@ -54,10 +54,6 @@ class Cart(View):
         data['categories'] = categories
         return render(request, 'cart.html', data)
 
-def productdetail(request,id):
-    product = Product.objects.filter(id = id)
-    return render(request, 'particular.html', {'products': product})
-
 
 def orders(request):
     return render(request, 'orders/orders.html')
