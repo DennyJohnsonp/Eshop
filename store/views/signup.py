@@ -4,6 +4,10 @@ from store.models.product import Product
 from store.models.category import Category
 from store.models.customer import Customer
 from django.views import View
+from django.core.mail import send_mail,EmailMultiAlternatives
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 class Signup(View):
     
@@ -30,6 +34,15 @@ class Signup(View):
         if (not error_message):
             customer.password = make_password(customer.password)
             customer.register()
+            template=render_to_string('../../store/templates/welcomemail.html',{'name':customer.first_name})
+            email=EmailMultiAlternatives(
+                'You Have Registered Successfully To Lucky Digital Studio',
+                template,
+                settings.EMAIL_HOST_USER,
+                [customer.email],
+            )
+            email.attach_alternative(template,"text/html")
+            email.send()
             return redirect("cart")
         else:
             data ={

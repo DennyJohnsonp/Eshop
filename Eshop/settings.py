@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
+    'django_inlinecss',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,12 @@ STATIC_URL = '/static/'
 MEDIA_URL = "/images/downloads/"
 MEDIA_ROOT = BASE_DIR
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+#Email Automation Backend
+
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT='587'
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='dennyjohnsondj3@gmail.com'
+EMAIL_HOST_PASSWORD='9448556773dj2417dj'
