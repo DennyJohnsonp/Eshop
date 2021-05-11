@@ -33,7 +33,22 @@
                 <ul class="navbar-nav mb-2 mb-lg-0 me-2">
                     {% if request.session.customer %}
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{% url 'bag' %}">Cart</a>
+                        <a class="nav-link " aria-current="page" href="{% url 'bag' %}">Cart
+                            {% if request.session.cart.keys|length%}
+                            <span style="background-color:#f857a6;
+                            border-radius:283px;
+                            border:1px solid #f857a6;
+                            color:#ffffff;
+                            font-family:Arial;
+                            font-size:13px;
+                            padding:2px 4px;
+                            text-decoration:none;
+                            text-align:center;
+                            text-shadow:0px 1px 0px #f857a6;" >{{request.session.cart.keys|length}}</span>
+                            {% else %}
+                            <span></span>
+                            {% endif%}
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " aria-current="page" href="/orders">Orders</a>
@@ -43,7 +58,22 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="{% url 'bag' %}">Cart</a>
+                        <a class="nav-link " aria-current="page" href="{% url 'bag' %}">Cart
+                            {% if request.session.cart.keys|length%}
+                            <span style="background-color:#f857a6;
+                            border-radius:283px;
+                            border:1px solid #f857a6;
+                            color:#ffffff;
+                            font-family:Arial;
+                            font-size:13px;
+                            padding:2px 4px;
+                            text-decoration:none;
+                            text-align:center;
+                            text-shadow:0px 1px 0px #f857a6;" >{{request.session.cart.keys|length}}</span>
+                            {% else %}
+                            <span></span>
+                            {% endif%}
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'signup' %}">Signup</a>

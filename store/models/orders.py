@@ -18,7 +18,11 @@ class Order(models.Model):
     country = models.CharField(max_length=10,default='')
     location = models.CharField(max_length=100,default='')
     date= models.DateField(default=datetime.datetime.today)  
+    status= models.BooleanField(default=False)
       
     
     def placeOrder(self):
         self.save() 
+        
+    def get_orders_by_customer(customer_id):
+        return Order.objects.filter(customer=customer_id).order_by('-date')

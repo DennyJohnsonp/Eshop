@@ -14,7 +14,7 @@ class AdminCustomer(admin.ModelAdmin):
     list_display = ['first_name' , 'last_name' ,'phone' ,'email','password']
     
 class AdminOrders(admin.ModelAdmin):
-    list_display = ['product' , 'customer' ,'quantity' ,'price','firstname','lastname','phone','payment','address','zipcode','city','state','country','location','date']
+    list_display = ['product' , 'customer' ,'quantity' ,'price','firstname','lastname','phone','payment','status','address','zipcode','city','state','country','location','date']
     
 
 # Register your models here.
