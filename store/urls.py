@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.urls import path
 from .views import home, login, signup, bag, checkout,particular, orders
 from .middlewares.auth import auth_middleware
+from .middlewares.checkauth import auth_check_middleware
 
 urlpatterns = [
     path('', home.index,name='index'),
@@ -12,7 +13,7 @@ urlpatterns = [
     path('cart/login',login.Login.as_view(),name='login'),
     path('cart/logout',login.logout,name='logout'),
     path('cart/bag',bag.Bag.as_view(),name='bag'),
-    path('cart/bag/checkout',checkout.CheckOut.as_view(),name='checkout'),
+    path('cart/bag/checkout',auth_check_middleware(checkout.CheckOut.as_view()),name='checkout'),
     path('orders',auth_middleware(orders.OrderView.as_view()),name='orders'),
     path('cart/particular/<int:id>/',particular.Particular.as_view(),name='particular'),
     path('orders',home.orders,name='orders'),
