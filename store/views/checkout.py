@@ -29,4 +29,4 @@ class CheckOut(View):
             order = Order(customer= Customer(id= customer), product= product,price=product.price,firstname=firstname,lastname=lastname,phone=phone,payment=payment,address=address,zipcode=zipcode,city=city,state=state,country=country,location=location, quantity=cart.get(str(product.id)))
             order.placeOrder()
         request.session['cart']={}
-        return render(request, 'bag.html')
+        return redirect("orders")
