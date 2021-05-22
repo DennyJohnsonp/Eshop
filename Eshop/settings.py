@@ -26,7 +26,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+SESSION_ENGINE = "django.contrib.sessions.backends.cache" 
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 
 # Application definition
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'store',
     'django_inlinecss',
+   
 ]
 
 MIDDLEWARE = [
@@ -49,7 +51,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'store.middlewares.auth.auth_middleware',
+]
+MIDDLEWARE_CLASSES=[
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+     
 ]
 
 ROOT_URLCONF = 'Eshop.urls'
@@ -65,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -83,6 +89,9 @@ DATABASES = {
     }
 }
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -108,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE =  'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -134,3 +143,4 @@ EMAIL_PORT='587'
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER='dennyjohnsondj3@gmail.com'
 EMAIL_HOST_PASSWORD='9448556773dj2417dj'
+

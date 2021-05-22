@@ -8,6 +8,9 @@ from django.core.mail import send_mail,EmailMultiAlternatives
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+import phonenumbers
+from phonenumbers import geocoder
+
 
 class Signup(View):
     
@@ -57,20 +60,30 @@ class Signup(View):
             error_message = "!!! First Name Required !!!"
         elif len(customer.first_name) < 4:
             error_message = "!!! First Name Must Be Greater Than 4 Characters or More !!! "
+        elif (not customer.first_name.isalpha()):
+                error_message = "!!!Only Characters Are Allowed For First Name !!!"
         elif (not customer.last_name):
             error_message = "!!! Last Name Required !!!"
+        elif (not customer.last_name.isalpha()):
+                error_message = "!!!Only Characters Are Allowed For Last Name !!!"
         elif len(customer.last_name) < 4:
             error_message = "!!! Last Name Must Be Greater Than 4 Characters or More !!! "
         elif (not customer.phone):
             error_message = "!!! Phone Number Required !!!"
-        elif len(customer.phone) < 10:
-            error_message = "!!! Phone Number Must Be Greater Than 10 Characters or More !!! "
+        elif len(customer.phone) < 13:
+            error_message = "!!! Phone Number Must Not Be Lesser Than 13 Characters  !!! "
+        elif len(customer.phone) > 13:
+            error_message = "!!! Phone Number Must Not  Be Greater Than 13 Characters  !!! "
         elif (not customer.password):
             error_message = "!!! Password Required !!!"
         elif len(customer.last_name) < 6:
             error_message = "!!! Password Must Be Greater Than 6 Characters or More !!! "
         elif customer.isExists():
             error_message = "!!!Email Address Already Registered!!!"
+        elif  (customer.phone):    
+            message=phonenumbers.is_valid_number(phonenumbers.parse(customer.phone))
+            if not message==True:
+                error_message="Please Enter a Valid Number "
         return error_message
 
  

@@ -17,7 +17,7 @@
     </title>
 </head>
 
-<body style="overflow: hidden;background-color:beige;">
+<body style="overflow-x: hidden;background-color:beige;">
     <nav id="topnav" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="nav-link active" href="{% url 'index' %}">Home</a>
@@ -94,28 +94,33 @@
             <!-- Address form -->
 
             <h2>ADDRESS</h2>
+            {% csrf_token %} {% if error%}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif%}
 
             <!-- full-name input-->
             <div class="first">
                 <div class="third">
-                    <input id="first-name" name="firstname" type="text" placeholder="First name" style="height: 35px; width: 250px;">
+                    <input id="first-name" name="firstname" type="text" placeholder="First name" value="{{values.firstname}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <div class="first" id="ln">
                 <div class="third">
-                    <input id="last-name" name="lastname" type="text" placeholder="Last name" style="height: 35px; width: 250px;">
+                    <input id="last-name" name="lastname" type="text" placeholder="Last name" value="{{values.lastname}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- Phone Number input-->
             <div class="first">
                 <div class="third">
-                    <input id="phone" name="phone" type="text" placeholder="Phone Number" style="height: 35px; width: 250px;">
+                    <input id="phone" name="phone" type="text" placeholder="Phone +91XXXXXXXXXX" value="{{values.phone}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <div class="first" id="pm">
                 <div class="third">
                     <select id="country" name="payment" style="height: 35px; width: 250px;">
-                        <option value="" selected="selected">Payment Method</option>
+                        <option value="" selected="selected" value="{{values.payment}}">Payment Method</option>
                         <option value="COD">Cash On Delivery(COD)</option>
                     </select>
                 </div>
@@ -123,32 +128,32 @@
             <!-- address-line1 input-->
             <div class="first">
                 <div class="third">
-                    <input id="address-line1" name="address" type="text" placeholder="Address line " style="height: 35px; width: 530px;">
+                    <input id="address-line1" name="address" type="text" placeholder="Address line" value="{{values.address}}" style="height: 35px; width: 530px;">
                 </div>
             </div>
             <!-- postal-code input-->
             <div class="first">
                 <div class="third">
-                    <input id="postal-code" name="zipcode" type="text" placeholder="Zip Code" style="height: 35px; width: 250px;">
+                    <input id="postal-code" name="zipcode" type="text" placeholder="Zip Code" value="{{values.zipcode}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- city input-->
             <div class="first" id="cy">
                 <div class="third">
-                    <input id="city" name="city" type="text" placeholder="City" style="height: 35px; width: 250px;">
+                    <input id="city" name="city" type="text" placeholder="City {{country}}" value="{{values.city}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- region input-->
             <div class="first">
                 <div class="third">
-                    <input id="region" name="state" type="text" placeholder="State" style="height: 35px; width: 250px;">
+                    <input id="region" name="state" type="text" placeholder="State {{country}}" value="{{values.state}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- country select -->
             <div class="first" id="cn">
                 <div class="third">
                     <select id="country" name="country" style="height: 35px; width: 250px;">
-                        <option value="" selected="selected">Select A Country</option>
+                        <option value="" selected="selected" value="{{values.country}}">Select A Country {{country}}</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AL">Albania</option>
                         <option value="DZ">Algeria</option>
@@ -393,7 +398,7 @@
             </div>
             <div id="danny" class="first" style="padding: 8px;">
                 <div class="third">
-                    <input id="denny" type="text" name="location" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 465px; position: absolute;">
+                    <input id="denny" type="text" name="location" value="{{values.location}}" placeholder="Copy The Delivery Address Google Map Link/Click On The Button" style="height: 35px; width: 465px; position: absolute;">
                     <button style="height: 35px; width: 50px; " type="button" onclick="showPosition();"><img src="{%  static  'css/Images/ping.png'  %}" style="height: 25px; width: 25px;"></button>
                 </div>
             </div>

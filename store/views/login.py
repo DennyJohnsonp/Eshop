@@ -4,6 +4,7 @@ from store.models.product import Product
 from store.models.category import Category
 from store.models.customer import Customer
 from django.views import View
+from django.contrib.auth import logout
 
 class Login(View):
     return_url = None
@@ -34,4 +35,5 @@ class Login(View):
 
 def logout(request):
     request.session.clear()
+    print(request.session)
     return redirect('login')
