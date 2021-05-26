@@ -15,7 +15,13 @@ class Login(View):
     def post(self, request):
         email = request.POST.get('email')
         password = request.POST.get('password')
+        print(email)
         customer = Customer.get_customer_by_email(email)
+        print(customer)
+        phone = request.POST.get('email')
+        print(phone)
+        customerp = Customer.get_customer_by_phone(phone)
+        print(customerp)
         error_message = None
         if customer:
             flag = check_password(password , customer.password)
@@ -28,9 +34,23 @@ class Login(View):
                     Login.return_url = None
                     return redirect('cart')
             else:
-                error_message = "!!! Invalid User Name or Password!!!"
+                error_message = "!!! Invalid User ID or Password!!!"
         else:
-            error_message = "!!! Invalid User Name or Password!!!"
+            error_message = "!!! Invalid User ID or Password!!!"
+        if customerp:
+            flag = check_password(password , customerp.password)
+            if flag:
+                request.session['customer']= customerp.id
+            
+                if Login.return_url:
+                    return HttpResponseRedirect(Login.return_url)
+                else:
+                    Login.return_url = None
+                    return redirect('cart')
+            else:
+                error_message = "!!! Invalid User ID or Password!!!"
+        else:
+            error_message = "!!! Invalid User ID or Password!!!"
         return render(request,'login.html',{'error':error_message})
 
 def logout(request):

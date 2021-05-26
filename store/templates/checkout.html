@@ -15,6 +15,11 @@
     <title>
         Check Out
     </title>
+    <script>
+        getElementById("first-name").defaultValue = "{{firstname}}";
+        getElementById("last-name").Value = "{{lastname}}";
+        getElementById("phone").defaultValue = "phone";
+    </script>
 </head>
 
 <body style="overflow-x: hidden;background-color:beige;">
@@ -103,18 +108,18 @@
             <!-- full-name input-->
             <div class="first">
                 <div class="third">
-                    <input id="first-name" name="firstname" type="text" placeholder="First name" value="{{values.firstname}}" style="height: 35px; width: 250px;">
+                    <input id="first-name" name="firstname" type="text" placeholder="First Name" value="{{values.firstname}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <div class="first" id="ln">
                 <div class="third">
-                    <input id="last-name" name="lastname" type="text" placeholder="Last name" value="{{values.lastname}}" style="height: 35px; width: 250px;">
+                    <input id="last-name" name="lastname" type="text" placeholder="Last Name" value="{{values.lastname}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <!-- Phone Number input-->
             <div class="first">
                 <div class="third">
-                    <input id="phone" name="phone" type="text" placeholder="Phone +91XXXXXXXXXX" value="{{values.phone}}" style="height: 35px; width: 250px;">
+                    <input id="phone" name="phone" type="text" placeholder="Phone Number +91XXXXXXXXXX" value="{{values.phone}}" style="height: 35px; width: 250px;">
                 </div>
             </div>
             <div class="first" id="pm">
@@ -421,6 +426,9 @@
             alert("Sorry, your browser does not support HTML5 geolocation.");
         }
     }
+    getElementById("first-name").defaultValue = "{{firstname}}";
+    getElementById("last-name").Value = "{{lastname}}";
+    getElementById("phone").defaultValue = "phone";
 </script>
 
 </html>

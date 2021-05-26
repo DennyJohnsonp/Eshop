@@ -16,10 +16,6 @@ class OrderView(View):
         customer= request.session.get('customer')
         orders= Order.get_orders_by_customer(customer)
         print(orders)
-        
-        # if not request.user.is_authenticated:
-        #     print(request.session['customer'])
-            
         return render(request, 'orders.html',{'orders':orders})
 
     

@@ -19,7 +19,23 @@ from phonenumbers import geocoder
 
 class CheckOut(View):
     def get(self, request):
-        return render(request, 'checkout.html')
+        id=request.session.get('customer')
+        phone=Customer.objects.get(id=int(id)).phone
+        print(phone)
+        firstname=Customer.objects.get(id=int(id)).first_name
+        print(firstname)
+        lastname=Customer.objects.get(id=int(id)).last_name
+        print(lastname)
+        value={
+            'phone':phone,
+            'firstname':firstname,
+            'lastname':lastname,
+        }
+        data ={
+                'values': value,
+        }
+        return render(request, 'checkout.html',data)
+    
     def post(self , request):
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')

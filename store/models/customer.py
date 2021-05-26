@@ -19,9 +19,21 @@ class Customer(models.Model):
             return Customer.objects.get(email=email)
         except:
             return False
+        
+    def get_customer_by_phone(phone):
+        try:
+            return Customer.objects.get(phone=phone)
+        except:
+            return False
  
     def isExists(self):
         if Customer.objects.filter(email=self.email):
+            return True
+        else:
+            return False
+    
+    def isNumExists(self):
+        if Customer.objects.filter(phone=self.phone):
             return True
         else:
             return False

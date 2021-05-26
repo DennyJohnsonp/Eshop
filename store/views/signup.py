@@ -78,6 +78,8 @@ class Signup(View):
             error_message = "!!! Password Required !!!"
         elif len(customer.last_name) < 6:
             error_message = "!!! Password Must Be Greater Than 6 Characters or More !!! "
+        elif customer.isNumExists():
+            error_message = "!!!Phone Number Already Registered!!!"
         elif customer.isExists():
             error_message = "!!!Email Address Already Registered!!!"
         elif  (customer.phone):    

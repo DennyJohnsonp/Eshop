@@ -116,7 +116,7 @@
                         <td>{{order.quantity }}</td>
                         <td>{{order.quantity|multiply:order.price }}₹</td>
                         {% if order.status %}
-                        <td><small class="completed">COMPLETED</small></td>
+                        <td><small class="completed">CONFIRMED</small></td>
                         {% else %}
                         <td><small class="pending">PENDING</small></td>
                         {% endif %}

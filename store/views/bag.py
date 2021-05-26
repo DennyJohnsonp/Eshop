@@ -12,4 +12,7 @@ class Bag(View):
         ids = list(request.session.get('cart').keys())
         products= Product.get_product_by_id(ids)
         print(products)
+    
         return render(request, 'bag.html',{'products':products})
+    
+    
